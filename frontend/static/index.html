@@ -11,7 +11,16 @@
       font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
       width: 100vw; height: 100vh;
       display: flex; align-items: center; justify-content: center;
-      background: #1a1a2e url('/img/login-register') center/cover no-repeat;
+      overflow: hidden;
+      background: #1a1a2e;
+    }
+
+    .bg-layer {
+      position: fixed;
+      inset: -20px;
+      background: url('/static/file/雪山.png') center/cover no-repeat;
+      transition: transform 0.15s ease-out;
+      z-index: 0;
     }
 
     .toast {
@@ -32,7 +41,8 @@
       position: relative; width: 760px; height: 460px;
       border-radius: 16px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-      background: url('/img/login-register') center/cover no-repeat;
+      background: url('/static/file/雪山.png') center/cover no-repeat;
+      z-index: 1;
     }
 
     /* ===== 白色表单面板 ===== */
@@ -150,6 +160,7 @@
 </head>
 <body>
 
+  <div class="bg-layer" id="bgLayer"></div>
   <div class="toast" id="toast"></div>
 
   <div class="card" id="card">
@@ -172,7 +183,7 @@
     <div class="form-panel login" id="loginPanel">
       <h2>登录</h2>
       <p class="subtitle">欢迎回来，请登录你的账户</p>
-      <input type="text" id="loginEmail" placeholder="Email" autocomplete="email">
+      <input type="text" id="loginEmail" placeholder="User" autocomplete="username">
       <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password">
       <div class="forgot"><a>Forgot your password?</a></div>
       <button class="form-btn" onclick="doLogin()">登 录</button>
@@ -211,6 +222,24 @@
   <script>
     var currentView = 'login';
     var switching = false;
+
+    /* 鼠标跟随背景效果 */
+    document.addEventListener('mousemove', function(e) {
+      var bgLayer = document.getElementById('bgLayer');
+      var card = document.getElementById('card');
+      
+      var centerX = window.innerWidth / 2;
+      var centerY = window.innerHeight / 2;
+      
+      var offsetX = (e.clientX - centerX) * 0.02;
+      var offsetY = (e.clientY - centerY) * 0.02;
+      
+      bgLayer.style.transform = 'translate(' + offsetX + 'px, ' + offsetY + 'px)';
+      
+      var cardOffsetX = (e.clientX - centerX) * 0.008;
+      var cardOffsetY = (e.clientY - centerY) * 0.008;
+      card.style.transform = 'translate(' + cardOffsetX + 'px, ' + cardOffsetY + 'px)';
+    });
 
     /* 检查本地是否有登录记录 */
     (function() {
