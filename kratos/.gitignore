@@ -1,0 +1,13 @@
+# binary
+login-server
+
+# logs
+server.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store

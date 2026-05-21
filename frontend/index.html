@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUTURE LAB - WebGL Experience</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0a0f; }
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+        #content-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; }
+        #title-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+        #main-title { font-family: 'Orbitron', monospace; font-size: clamp(4rem, 15vw, 12rem); font-weight: 900; color: transparent; background: linear-gradient(135deg, #00f5ff 0%, #7b2cbf 50%, #ff0080 100%); background-clip: text; -webkit-background-clip: text; text-shadow: 0 0 100px rgba(0, 245, 255, 0.5); letter-spacing: 0.1em; opacity: 0; animation: titleReveal 2s ease-out forwards; }
+        #subtitle { font-family: 'Roboto Mono', monospace; font-size: clamp(0.8rem, 2vw, 1.5rem); color: rgba(255, 255, 255, 0.6); letter-spacing: 0.3em; margin-top: 1rem; opacity: 0; animation: subtitleReveal 1.5s ease-out 1s forwards; }
+        #glitch-effect { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 245, 255, 0.03) 2px, rgba(0, 245, 255, 0.03) 4px); pointer-events: none; }
+        @keyframes titleReveal { 0% { opacity: 0; transform: translateY(50px) scale(0.9); filter: blur(20px); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+        @keyframes subtitleReveal { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 0.6; transform: translateY(0); } }
+        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.3), transparent); animation: scan 4s linear infinite; }
+        @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
+        #nav-hud { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 2rem; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; letter-spacing: 0.2em; }
+        .nav-item { color: rgba(255, 255, 255, 0.4); cursor: pointer; transition: all 0.3s ease-out; pointer-events: auto; }
+        .nav-item:hover { color: #00f5ff; text-shadow: 0 0 20px rgba(0, 245, 255, 0.8); }
+        #status-indicator { position: absolute; top: 20px; right: 20px; display: flex; align-items: center; gap: 10px; font-family: 'Roboto Mono', monospace; font-size: 0.7rem; color: rgba(255, 255, 255, 0.5); }
+        #status-dot { width: 8px; height: 8px; background: #00ff88; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(0, 255, 136, 0.5); } 50% { opacity: 0.5; box-shadow: 0 0 20px rgba(0, 255, 136, 0.8); } }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <div id="content-overlay">
+        <div id="title-container">
+            <h1 id="main-title">FUTURE</h1>
+            <p id="subtitle">LABORATORY</p>
+        </div>
+        <div class="scan-line"></div>
+        <div id="glitch-effect"></div>
+        <div id="nav-hud">
+            <div class="nav-item">INIT</div>
+            <div class="nav-item">EXPLORE</div>
+            <div class="nav-item">ANALYZE</div>
+            <div class="nav-item">SYSTEM</div>
+        </div>
+        <div id="status-indicator">
+            <div id="status-dot"></div>
+            <span>SYSTEM ONLINE</span>
+        </div>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js';
+        import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/controls/OrbitControls.js';
+
+        class FutureLab {
+            constructor() {
+                this.scene = null;
+                this.camera = null;
+                this.renderer = null;
+                this.controls = null;
+                this.grid = null;
+                this.meshGroup = null;
+                this.mouseX = 0;
+                this.mouseY = 0;
+                this.targetMouseX = 0;
+                this.targetMouseY = 0;
+                this.time = 0;
+                this.init();
+            }
+
+            init() {
+                this.setupScene();
+                this.setupLighting();
+                this.createGrid();
+                this.createFloatingGeometry();
+                this.createParticles();
+                this.setupEventListeners();
+                this.animate();
+            }
+
+            setupScene() {
+                this.scene = new THREE.Scene();
+                this.scene.background = new THREE.Color(0x0a0a0f);
+                this.scene.fog = new THREE.Fog(0x0a0a0f, 50, 200);
+
+                const aspect = window.innerWidth / window.innerHeight;
+                this.camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 200);
+                this.camera.position.set(0, 10, 25);
+
+                this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                this.renderer.shadowMap.enabled = true;
+                this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                document.getElementById('canvas-container').appendChild(this.renderer.domElement);
+
+                this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+                this.controls.enableDamping = true;
+                this.controls.dampingFactor = 0.05;
+                this.controls.minDistance = 10;
+                this.controls.maxDistance = 100;
+                this.controls.enablePan = false;
+            }
+
+            setupLighting() {
+                const ambientLight = new THREE.AmbientLight(0x404080, 0.3);
+                this.scene.add(ambientLight);
+
+                const directionalLight = new THREE.DirectionalLight(0x00f5ff, 1);
+                directionalLight.position.set(50, 50, 50);
+                directionalLight.castShadow = true;
+                directionalLight.shadow.mapSize.width = 2048;
+                directionalLight.shadow.mapSize.height = 2048;
+                directionalLight.shadow.camera.near = 0.5;
+                directionalLight.shadow.camera.far = 500;
+                this.scene.add(directionalLight);
+
+                const pointLight1 = new THREE.PointLight(0x7b2cbf, 0.8, 100);
+                pointLight1.position.set(-30, 20, -30);
+                this.scene.add(pointLight1);
+
+                const pointLight2 = new THREE.PointLight(0xff0080, 0.5, 80);
+                pointLight2.position.set(30, -10, 30);
+                this.scene.add(pointLight2);
+
+                const hemisphereLight = new THREE.HemisphereLight(0x00f5ff, 0x7b2cbf, 0.2);
+                this.scene.add(hemisphereLight);
+            }
+
+            createGrid() {
+                const gridSize = 100;
+                const gridDivisions = 100;
+
+                const gridGeometry = new THREE.BufferGeometry();
+                const gridVertices = [];
+                const gridColors = [];
+
+                const color1 = new THREE.Color(0x00f5ff);
+                const color2 = new THREE.Color(0x7b2cbf);
+
+                for (let i = -gridSize / 2; i <= gridSize / 2; i += gridSize / gridDivisions) {
+                    gridVertices.push(-gridSize / 2, 0, i);
+                    gridVertices.push(gridSize / 2, 0, i);
+                    gridVertices.push(i, 0, -gridSize / 2);
+                    gridVertices.push(i, 0, gridSize / 2);
+
+                    const ratio = Math.abs(i) / (gridSize / 2);
+                    const mixedColor = color1.clone().lerp(color2, ratio);
+                    gridColors.push(mixedColor.r, mixedColor.g, mixedColor.b);
+                    gridColors.push(mixedColor.r, mixedColor.g, mixedColor.b);
+                    gridColors.push(mixedColor.r, mixedColor.g, mixedColor.b);
+                    gridColors.push(mixedColor.r, mixedColor.g, mixedColor.b);
+                }
+
+                gridGeometry.setAttribute('position', new THREE.Float32BufferAttribute(gridVertices, 3));
+                gridGeometry.setAttribute('color', new THREE.Float32BufferAttribute(gridColors, 3));
+
+                const gridMaterial = new THREE.LineBasicMaterial({
+                    vertexColors: true,
+                    transparent: true,
+                    opacity: 0.4,
+                    linewidth: 1
+                });
+
+                this.grid = new THREE.LineSegments(gridGeometry, gridMaterial);
+                this.scene.add(this.grid);
+
+                const gridEdgeGeometry = new THREE.BoxGeometry(gridSize, 0.1, gridSize);
+                const gridEdgeMaterial = new THREE.MeshPhysicalMaterial({
+                    color: 0x00f5ff,
+                    metalness: 0.8,
+                    roughness: 0.2,
+                    transparent: true,
+                    opacity: 0.3,
+                    emissive: 0x00f5ff,
+                    emissiveIntensity: 0.3
+                });
+                const gridEdge = new THREE.Mesh(gridEdgeGeometry, gridEdgeMaterial);
+                this.grid.add(gridEdge);
+            }
+
+            createFloatingGeometry() {
+                this.meshGroup = new THREE.Group();
+
+                const geometries = [
+                    new THREE.TorusKnotGeometry(3, 1, 128, 32),
+                    new THREE.IcosahedronGeometry(2.5, 0),
+                    new THREE.OctahedronGeometry(2, 0),
+                    new THREE.TetrahedronGeometry(2.2, 0),
+                    new THREE.DodecahedronGeometry(1.8, 0)
+                ];
+
+                const positions = [
+                    { x: -15, y: 8, z: -10 },
+                    { x: 12, y: 12, z: 5 },
+                    { x: 0, y: 6, z: 15 },
+                    { x: -10, y: 15, z: 8 },
+                    { x: 18, y: 5, z: -15 }
+                ];
+
+                geometries.forEach((geometry, index) => {
+                    const material = new THREE.MeshPhysicalMaterial({
+                        color: new THREE.Color().setHSL(0.5 + Math.random() * 0.3, 0.8, 0.6),
+                        metalness: 0.9,
+                        roughness: 0.1,
+                        transparent: true,
+                        opacity: 0.8,
+                        emissive: new THREE.Color().setHSL(0.5 + Math.random() * 0.3, 0.8, 0.3),
+                        emissiveIntensity: 0.5,
+                        envMapIntensity: 1.0
+                    });
+
+                    const mesh = new THREE.Mesh(geometry, material);
+                    mesh.position.set(positions[index].x, positions[index].y, positions[index].z);
+                    mesh.castShadow = true;
+                    mesh.receiveShadow = true;
+                    mesh.userData = {
+                        rotationSpeed: {
+                            x: (Math.random() - 0.5) * 0.01,
+                            y: (Math.random() - 0.5) * 0.01,
+                            z: (Math.random() - 0.5) * 0.01
+                        },
+                        floatOffset: index * Math.PI * 0.4,
+                        floatSpeed: 0.5 + Math.random() * 0.5
+                    };
+
+                    this.meshGroup.add(mesh);
+                });
+
+                this.scene.add(this.meshGroup);
+            }
+
+            createParticles() {
+                const particleCount = 2000;
+                const positions = new Float32Array(particleCount * 3);
+                const colors = new Float32Array(particleCount * 3);
+                const sizes = new Float32Array(particleCount);
+
+                const color1 = new THREE.Color(0x00f5ff);
+                const color2 = new THREE.Color(0x7b2cbf);
+                const color3 = new THREE.Color(0xff0080);
+
+                for (let i = 0; i < particleCount; i++) {
+                    const i3 = i * 3;
+                    positions[i3] = (Math.random() - 0.5) * 200;
+                    positions[i3 + 1] = (Math.random() - 0.5) * 100;
+                    positions[i3 + 2] = (Math.random() - 0.5) * 200;
+
+                    const colorChoice = Math.random();
+                    let color;
+                    if (colorChoice < 0.5) color = color1;
+                    else if (colorChoice < 0.8) color = color2;
+                    else color = color3;
+                    colors[i3] = color.r;
+                    colors[i3 + 1] = color.g;
+                    colors[i3 + 2] = color.b;
+
+                    sizes[i] = Math.random() * 3 + 1;
+                }
+
+                const particleGeometry = new THREE.BufferGeometry();
+                particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+                particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+                const particleMaterial = new THREE.ShaderMaterial({
+                    uniforms: {
+                        time: { value: 0 }
+                    },
+                    vertexShader: `
+                        attribute float size;
+                        varying vec3 vColor;
+                        uniform float time;
+                        void main() {
+                            vColor = color;
+                            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                            gl_PointSize = size * (300.0 / -mvPosition.z) * (1.0 + sin(time * 2.0 + position.x) * 0.3);
+                            gl_Position = projectionMatrix * mvPosition;
+                        }
+                    `,
+                    fragmentShader: `
+                        varying vec3 vColor;
+                        void main() {
+                            float dist = length(gl_PointCoord - vec2(0.5));
+                            if (dist > 0.5) discard;
+                            float alpha = 1.0 - smoothstep(0.0, 0.5, dist);
+                            gl_FragColor = vec4(vColor, alpha);
+                        }
+                    `,
+                    transparent: true,
+                    vertexColors: true,
+                    blending: THREE.AdditiveBlending,
+                    depthWrite: false
+                });
+
+                this.particles = new THREE.Points(particleGeometry, particleMaterial);
+                this.scene.add(this.particles);
+            }
+
+            setupEventListeners() {
+                window.addEventListener('resize', () => this.onWindowResize());
+                window.addEventListener('mousemove', (e) => this.onMouseMove(e));
+            }
+
+            onWindowResize() {
+                this.camera.aspect = window.innerWidth / window.innerHeight;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+
+            onMouseMove(event) {
+                this.targetMouseX = (event.clientX / window.innerWidth - 0.5) * 2;
+                this.targetMouseY = -(event.clientY / window.innerHeight - 0.5) * 2;
+            }
+
+            animate() {
+                requestAnimationFrame(() => this.animate());
+
+                this.time += 0.016;
+
+                this.mouseX += (this.targetMouseX - this.mouseX) * 0.05;
+                this.mouseY += (this.targetMouseY - this.mouseY) * 0.05;
+
+                if (this.grid) {
+                    this.grid.rotation.x = Math.sin(this.time * 0.1) * 0.02 + this.mouseY * 0.1;
+                    this.grid.position.x = Math.sin(this.time * 0.05) * 2 + this.mouseX * 3;
+                    this.grid.position.z = Math.cos(this.time * 0.05) * 2 + this.mouseY * 3;
+                }
+
+                if (this.meshGroup) {
+                    this.meshGroup.children.forEach(mesh => {
+                        mesh.rotation.x += mesh.userData.rotationSpeed.x;
+                        mesh.rotation.y += mesh.userData.rotationSpeed.y;
+                        mesh.rotation.z += mesh.userData.rotationSpeed.z;
+                        mesh.position.y += Math.sin(this.time * mesh.userData.floatSpeed + mesh.userData.floatOffset) * 0.05;
+                    });
+                }
+
+                if (this.particles) {
+                    this.particles.material.uniforms.time.value = this.time;
+                    this.particles.rotation.y += 0.002;
+                }
+
+                this.camera.position.x += (this.mouseX * 5 - this.camera.position.x) * 0.02;
+                this.camera.position.y += (-this.mouseY * 3 + 10 - this.camera.position.y) * 0.02;
+
+                this.controls.update();
+                this.renderer.render(this.scene, this.camera);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new FutureLab();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 / 注册</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+      width: 100vw; height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: #1a1a2e url('/img/login-register') center/cover no-repeat;
+    }
+
+    .toast {
+      position: fixed; top: 28px; left: 50%;
+      transform: translateX(-50%) translateY(-120px);
+      padding: 10px 24px; border-radius: 8px;
+      font-size: 14px; font-weight: 500;
+      z-index: 999; opacity: 0;
+      transition: all 0.4s ease;
+      pointer-events: none; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.success { background: #10b981; color: #fff; }
+    .toast.error   { background: #ef4444; color: #fff; }
+
+    /* ===== 卡片容器 ===== */
+    .card {
+      position: relative; width: 760px; height: 460px;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      background: url('/img/login-register') center/cover no-repeat;
+    }
+
+    /* ===== 白色表单面板 ===== */
+    .form-panel {
+      position: absolute; top: 0; width: 50%; height: 100%;
+      background: #fff; z-index: 2;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 0 40px;
+      transition: left 0.6s ease-in-out, opacity 0.3s ease;
+    }
+
+    .form-panel.login { left: 0; }
+    .form-panel.login.hidden { left: -50%; opacity: 0; pointer-events: none; }
+
+    .form-panel.register { left: 50%; }
+    .form-panel.register.hidden { left: 100%; opacity: 0; pointer-events: none; }
+
+    .form-panel h2 { font-size: 24px; color: #222; margin-bottom: 6px; font-weight: 600; }
+    .form-panel .subtitle { font-size: 13px; color: #999; margin-bottom: 26px; }
+
+    .form-panel input {
+      width: 100%; padding: 12px 14px; margin-bottom: 16px;
+      border: none; border-radius: 6px; font-size: 14px;
+      color: #333; background: #f0f0f0; outline: none;
+    }
+    .form-panel input:focus { background: #e8e8e8; }
+
+    .forgot { text-align: right; margin-bottom: 18px; font-size: 12px; }
+    .forgot a { color: #888; text-decoration: none; cursor: default; }
+
+    .form-btn {
+      width: 100%; padding: 12px; border: none; border-radius: 6px;
+      font-size: 15px; font-weight: 600; color: #fff; cursor: pointer;
+      background: linear-gradient(135deg, #2dd4bf, #3b82f6);
+      transition: filter 0.2s, transform 0.15s;
+    }
+    .form-btn:hover { filter: brightness(0.92); }
+    .form-btn:active { transform: scale(0.98); }
+
+    /* ===== 图片侧切换区域 ===== */
+    .switch-overlay {
+      position: absolute; top: 0; height: 100%; z-index: 3;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: #fff; text-align: center;
+      transition: left 0.6s ease-in-out, right 0.6s ease-in-out, opacity 0.3s ease;
+    }
+
+    .switch-overlay.login-side  { right: 0;  width: 50%; }
+    .switch-overlay.register-side { left: 0;   width: 50%; }
+
+    .switch-overlay.login-side.hidden  { right: -50%; opacity: 0; pointer-events: none; }
+    .switch-overlay.register-side.hidden { left: -50%; opacity: 0; pointer-events: none; }
+
+    .switch-overlay .switch-title  { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .switch-overlay .switch-desc   { font-size: 13px; opacity: 0.8; margin-bottom: 22px; }
+    .switch-overlay .switch-btn {
+      padding: 10px 40px;
+      border: 2px solid #fff; border-radius: 30px;
+      background: transparent;
+      color: #fff; font-size: 14px; font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .switch-overlay .switch-btn:hover { background: #fff; color: #333; }
+
+    /* ===== 登录后的欢迎页 ===== */
+    .welcome-page {
+      position: absolute; inset: 0; z-index: 5;
+      background: rgba(255,255,255,0.95);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .welcome-page.show { opacity: 1; pointer-events: auto; }
+
+    .welcome-page .avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, #2dd4bf, #3b82f6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; color: #fff; font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .welcome-page h1 { font-size: 26px; color: #222; margin-bottom: 6px; }
+    .welcome-page .welcome-msg { font-size: 14px; color: #999; margin-bottom: 30px; }
+
+    .welcome-page .info-cards {
+      display: flex; gap: 16px; margin-bottom: 30px;
+    }
+    .welcome-page .info-card {
+      padding: 16px 28px; border-radius: 12px;
+      background: #f8f9fb; text-align: center;
+    }
+    .info-card .val { font-size: 22px; font-weight: 700; color: #333; }
+    .info-card .label { font-size: 12px; color: #999; margin-top: 4px; }
+
+    .logout-btn {
+      padding: 10px 36px; border: none; border-radius: 6px;
+      background: #ef4444; color: #fff;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: filter 0.2s;
+    }
+    .logout-btn:hover { filter: brightness(0.9); }
+
+    /* 登录表单消失 — 欢迎页接管时让卡片只留背景 */
+    .card.welcomed .form-panel,
+    .card.welcomed .switch-overlay { display: none; }
+
+    @media (max-width: 800px) {
+      .card { width: 92vw; height: 520px; }
+      .form-panel { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="card" id="card">
+
+    <!-- 登录态 — 右侧图片区 -->
+    <div class="switch-overlay login-side" id="switchLogin">
+      <div class="switch-title">你好，朋友！</div>
+      <div class="switch-desc">还没有账号？</div>
+      <button class="switch-btn" onclick="switchTo('register')">立即注册</button>
+    </div>
+
+    <!-- 注册态 — 左侧图片区 -->
+    <div class="switch-overlay register-side hidden" id="switchRegister">
+      <div class="switch-title">欢迎回来！</div>
+      <div class="switch-desc">已有账号？</div>
+      <button class="switch-btn" onclick="switchTo('login')">立即登录</button>
+    </div>
+
+    <!-- 登录表单面板 -->
+    <div class="form-panel login" id="loginPanel">
+      <h2>登录</h2>
+      <p class="subtitle">欢迎回来，请登录你的账户</p>
+      <input type="text" id="loginEmail" placeholder="Email" autocomplete="email">
+      <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password">
+      <div class="forgot"><a>Forgot your password?</a></div>
+      <button class="form-btn" onclick="doLogin()">登 录</button>
+    </div>
+
+    <!-- 注册表单面板 -->
+    <div class="form-panel register hidden" id="registerPanel">
+      <h2>注册</h2>
+      <p class="subtitle">创建一个新账户</p>
+      <input type="text" id="regUser" placeholder="User" autocomplete="off">
+      <input type="text" id="regEmail" placeholder="Email" autocomplete="email">
+      <input type="password" id="regPass" placeholder="Password" autocomplete="new-password">
+      <button class="form-btn" onclick="doRegister()">注 册</button>
+    </div>
+
+    <!-- 登录后的欢迎页 -->
+    <div class="welcome-page" id="welcomePage">
+      <div class="avatar" id="welcomeAvatar">?</div>
+      <h1 id="welcomeUsername">用户</h1>
+      <p class="welcome-msg">登录成功，欢迎回来！</p>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="val" id="loginCount">1</div>
+          <div class="label">登录次数</div>
+        </div>
+        <div class="info-card">
+          <div class="val" id="memberDays">0</div>
+          <div class="label">注册天数</div>
+        </div>
+      </div>
+      <button class="logout-btn" onclick="doLogout()">退出登录</button>
+    </div>
+
+  </div>
+
+  <script>
+    var currentView = 'login';
+    var switching = false;
+
+    /* 检查本地是否有登录记录 */
+    (function() {
+      var saved = localStorage.getItem('login_user');
+      if (saved) {
+        try {
+          var user = JSON.parse(saved);
+          showWelcome(user.username);
+        } catch(e) {
+          localStorage.removeItem('login_user');
+        }
+      }
+    })();
+
+    function switchTo(view) {
+      if (switching || view === currentView) return;
+      switching = true;
+
+      var loginPanel  = document.getElementById('loginPanel');
+      var regPanel    = document.getElementById('registerPanel');
+      var switchLogin = document.getElementById('switchLogin');
+      var switchReg   = document.getElementById('switchRegister');
+
+      if (view === 'register') {
+        switchLogin.classList.add('hidden');
+        loginPanel.classList.add('hidden');
+        regPanel.classList.remove('hidden');
+        switchReg.classList.remove('hidden');
+      } else {
+        switchReg.classList.add('hidden');
+        regPanel.classList.add('hidden');
+        loginPanel.classList.remove('hidden');
+        switchLogin.classList.remove('hidden');
+      }
+
+      currentView = view;
+      setTimeout(function() { switching = false; }, 650);
+    }
+
+    function showWelcome(username) {
+      document.getElementById('card').classList.add('welcomed');
+      var wp = document.getElementById('welcomePage');
+      wp.classList.add('show');
+
+      var initial = (username || '?')[0].toUpperCase();
+      document.getElementById('welcomeAvatar').textContent = initial;
+      document.getElementById('welcomeUsername').textContent = username;
+      document.getElementById('loginCount').textContent = '1';
+      document.getElementById('memberDays').textContent = '0';
+    }
+
+    function doLogout() {
+      localStorage.removeItem('login_user');
+      document.getElementById('card').classList.remove('welcomed');
+      document.getElementById('welcomePage').classList.remove('show');
+      document.getElementById('loginEmail').value = '';
+      document.getElementById('loginPass').value = '';
+      document.getElementById('loginPanel').classList.remove('hidden');
+      document.getElementById('registerPanel').classList.add('hidden');
+      document.getElementById('switchLogin').classList.remove('hidden');
+      document.getElementById('switchRegister').classList.add('hidden');
+      currentView = 'login';
+    }
+
+    function toast(msg, type) {
+      var el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'toast ' + type + ' show';
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }
+
+    async function doLogin() {
+      var email = document.getElementById('loginEmail').value.trim();
+      var pass  = document.getElementById('loginPass').value;
+      if (!email || !pass) return toast('请填写完整', 'error');
+      try {
+        var res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: email, password: pass })
+        });
+        var data = await res.json();
+        // 登录成功，跳转到欢迎页
+        if (data.code === 0) {
+          toast('登录成功！', 'success');
+          setTimeout(function() {
+            window.location.href = '/welcome';
+          }, 800);
+        } else {
+          toast(data.msg, 'error');
+        }
+      } catch(e) { toast('网络错误', 'error'); }
+    }
+
+    async function doRegister() {
+      var user  = document.getElementById('regUser').value.trim();
+      var email = document.getElementById('regEmail').value.trim();
+      var pass  = document.getElementById('regPass').value;
+      var username = user || email;
+      if (!username || !pass) return toast('请填写完整', 'error');
+      try {
+        var res = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: username, password: pass })
+        });
+        var data = await res.json();
+        if (data.code === 0) {
+          toast('注册成功！', 'success');
+          setTimeout(function() { switchTo('login'); }, 1200);
+        } else {
+          toast(data.msg, 'error');
+        }
+      } catch(e) { toast('网络错误', 'error'); }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        var wp = document.getElementById('welcomePage');
+        if (wp.classList.contains('show')) return;
+        currentView === 'login' ? doLogin() : doRegister();
+      }
+    });
+  </script>
+</body>
+</html>

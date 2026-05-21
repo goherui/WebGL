@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎 - 未来实验室</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="welcome-page">
+    <div class="welcome-container">
+        <div class="welcome-card">
+            <div class="avatar" id="userAvatar">?</div>
+            <h1 class="welcome-title" id="welcomeTitle">欢迎回来</h1>
+            <p class="welcome-subtitle" id="welcomeSubtitle">正在加载...</p>
+            
+            <div class="welcome-actions">
+                <button class="btn-primary" id="enterLab">
+                    进入实验室
+                    <span class="arrow">→</span>
+                </button>
+                <button class="btn-secondary" id="logoutBtn">
+                    退出登录
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>正在验证登录状态...</p>
+    </div>
+
+    <script src="/static/js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const overlay = document.getElementById('loadingOverlay');
+            
+            try {
+                const user = await checkAuth();
+                if (!user) {
+                    window.location.href = '/';
+                    return;
+                }
+
+                const initial = user.username ? user.username[0].toUpperCase() : '?';
+                document.getElementById('userAvatar').textContent = initial;
+                document.getElementById('welcomeTitle').textContent = `欢迎回来，${user.username}`;
+                document.getElementById('welcomeSubtitle').textContent = '准备开始你的实验室之旅';
+
+                overlay.classList.add('hidden');
+
+                document.getElementById('enterLab').addEventListener('click', function() {
+                    window.location.href = '/lab';
+                });
+
+                document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+
+            } catch (error) {
+                console.error('验证失败:', error);
+                window.location.href = '/';
+            }
+        });
+    </script>
+</body>
+</html>
