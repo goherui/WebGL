@@ -18,8 +18,17 @@
     .bg-layer {
       position: fixed;
       inset: -20px;
-      background: url('/static/file/雪山.png') center/cover no-repeat;
+      background: url('/static/file/雪山-早上.png') center/cover no-repeat;
       transition: transform 0.15s ease-out;
+      z-index: 0;
+    }
+
+    .bg-layer2 {
+      position: fixed;
+      inset: -20px;
+      background: url('/static/file/雪山-早上.png') center/cover no-repeat;
+      transition: transform 0.15s ease-out;
+      opacity: 0;
       z-index: 0;
     }
 
@@ -41,7 +50,7 @@
       position: relative; width: 760px; height: 460px;
       border-radius: 16px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-      background: url('/static/file/雪山.png') center/cover no-repeat;
+      background: url('/static/file/雪山-早上.png') center/cover no-repeat;
       z-index: 1;
     }
 
@@ -161,6 +170,7 @@
 <body>
 
   <div class="bg-layer" id="bgLayer"></div>
+  <div class="bg-layer2" id="bgLayer2"></div>
   <div class="toast" id="toast"></div>
 
   <div class="card" id="card">
@@ -222,10 +232,86 @@
   <script>
     var currentView = 'login';
     var switching = false;
+    
+    var images = [
+      '/static/file/雪山-白天.png',
+      '/static/file/雪山-傍晚.png',
+      '/static/file/雪山-晚上.png'
+    ];
+    var currentBgIndex = 0;
+    var isBg1Active = true;
+    
+    /* 根据时间获取初始图片 */
+    function getInitialImageIndex() {
+      var now = new Date();
+      var hour = now.getHours();
+      var minute = now.getMinutes();
+      
+      var totalMinutes = hour * 60 + minute;
+      
+      var morningStart = 6 * 60;      // 6:00
+      var eveningStart = 17 * 60;     // 17:00
+      var nightStart = 19 * 60 + 30;  // 19:30
+      var midnight = 24 * 60;          // 24:00
+      
+      if (totalMinutes >= morningStart && totalMinutes < eveningStart) {
+        return 0; // 白天 (6:00-17:00)
+      } else if (totalMinutes >= eveningStart && totalMinutes < nightStart) {
+        return 1; // 傍晚 (17:00-19:30)
+      } else {
+        return 2; // 晚上 (19:30-6:00)
+      }
+    }
+    
+    /* 初始设置背景 */
+    function initBackground() {
+      currentBgIndex = getInitialImageIndex();
+      var bgLayer = document.getElementById('bgLayer');
+      var bgLayer2 = document.getElementById('bgLayer2');
+      var card = document.getElementById('card');
+      
+      bgLayer.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+      bgLayer2.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+      card.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+    }
+    
+    /* 切换背景图片 */
+    function switchBackground() {
+      currentBgIndex = (currentBgIndex + 1) % images.length;
+      var bgLayer = document.getElementById('bgLayer');
+      var bgLayer2 = document.getElementById('bgLayer2');
+      var card = document.getElementById('card');
+      
+      if (isBg1Active) {
+        bgLayer2.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+        bgLayer2.style.opacity = 1;
+        bgLayer2.style.transition = 'opacity 5s ease-in-out';
+        card.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+      } else {
+        bgLayer.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+        bgLayer.style.opacity = 1;
+        bgLayer.style.transition = 'opacity 5s ease-in-out';
+        bgLayer2.style.opacity = 0;
+        bgLayer2.style.transition = 'opacity 5s ease-in-out';
+        card.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+      }
+      
+      isBg1Active = !isBg1Active;
+      
+      // 5秒后隐藏淡出的层
+      setTimeout(function() {
+        if (isBg1Active) {
+          bgLayer2.style.opacity = 0;
+        } else {
+          bgLayer.style.opacity = 0;
+        }
+      }, 5000);
+    }
 
     /* 鼠标跟随背景效果 */
     document.addEventListener('mousemove', function(e) {
       var bgLayer = document.getElementById('bgLayer');
+      var bgLayer2 = document.getElementById('bgLayer2');
       var card = document.getElementById('card');
       
       var centerX = window.innerWidth / 2;
@@ -235,6 +321,7 @@
       var offsetY = (e.clientY - centerY) * 0.02;
       
       bgLayer.style.transform = 'translate(' + offsetX + 'px, ' + offsetY + 'px)';
+      bgLayer2.style.transform = 'translate(' + offsetX + 'px, ' + offsetY + 'px)';
       
       var cardOffsetX = (e.clientX - centerX) * 0.008;
       var cardOffsetY = (e.clientY - centerY) * 0.008;
@@ -363,6 +450,43 @@
         currentView === 'login' ? doLogin() : doRegister();
       }
     });
+    
+    // 初始化背景
+    initBackground();
+    
+    // 每分钟检查一次时间，根据实际时间切换背景
+    setInterval(function() {
+      var newIndex = getInitialImageIndex();
+      if (newIndex !== currentBgIndex) {
+        currentBgIndex = newIndex;
+        var bgLayer = document.getElementById('bgLayer');
+        var bgLayer2 = document.getElementById('bgLayer2');
+        var card = document.getElementById('card');
+        
+        if (isBg1Active) {
+          bgLayer2.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+          bgLayer2.style.opacity = 1;
+          bgLayer2.style.transition = 'opacity 5s ease-in-out';
+        } else {
+          bgLayer.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+          bgLayer.style.opacity = 1;
+          bgLayer.style.transition = 'opacity 5s ease-in-out';
+          bgLayer2.style.opacity = 0;
+          bgLayer2.style.transition = 'opacity 5s ease-in-out';
+        }
+        
+        card.style.backgroundImage = 'url("' + images[currentBgIndex] + '")';
+        isBg1Active = !isBg1Active;
+        
+        setTimeout(function() {
+          if (isBg1Active) {
+            bgLayer2.style.opacity = 0;
+          } else {
+            bgLayer.style.opacity = 0;
+          }
+        }, 5000);
+      }
+    }, 60000); // 每分钟检查一次
   </script>
 </body>
 </html>
