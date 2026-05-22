@@ -44,7 +44,7 @@ func (uc *UserUseCase) Register(ctx context.Context, username, password string) 
 		return err
 	}
 
-	if _, err := uc.repo.Exec(ctx, "USE login_app"); err != nil {
+	if _, err := uc.repo.Exec(ctx, "USE future"); err != nil {
 		return err
 	}
 
@@ -64,7 +64,7 @@ func (uc *UserUseCase) Login(ctx context.Context, username, password string) (*U
 		return nil, ErrInvalidCredential
 	}
 
-	if _, err := uc.repo.Exec(ctx, "USE login_app"); err != nil {
+	if _, err := uc.repo.Exec(ctx, "USE future"); err != nil {
 		return nil, err
 	}
 
