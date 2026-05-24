@@ -1,0 +1,5 @@
+# import config
+packagefile crypto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b078\_pkg_.a
+packagefile crypto/internal/boring=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b077\_pkg_.a
+packagefile crypto/internal/fips140/sha256=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b087\_pkg_.a
+packagefile hash=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b079\_pkg_.a

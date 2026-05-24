@@ -1,0 +1,11 @@
+# import config
+importmap golang.org/x/text/secure/bidirule=vendor/golang.org/x/text/secure/bidirule
+importmap golang.org/x/text/unicode/bidi=vendor/golang.org/x/text/unicode/bidi
+importmap golang.org/x/text/unicode/norm=vendor/golang.org/x/text/unicode/norm
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile vendor/golang.org/x/text/secure/bidirule=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b199\_pkg_.a
+packagefile vendor/golang.org/x/text/unicode/bidi=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b201\_pkg_.a
+packagefile vendor/golang.org/x/text/unicode/norm=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b202\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

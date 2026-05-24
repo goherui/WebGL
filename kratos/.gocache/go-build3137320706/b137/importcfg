@@ -1,0 +1,10 @@
+# import config
+packagefile crypto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b078\_pkg_.a
+packagefile crypto/internal/fips140/ed25519=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b138\_pkg_.a
+packagefile crypto/internal/fips140cache=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b131\_pkg_.a
+packagefile crypto/internal/fips140only=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b099\_pkg_.a
+packagefile crypto/rand=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b076\_pkg_.a
+packagefile crypto/subtle=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b100\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a

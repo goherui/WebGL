@@ -1,0 +1,12 @@
+# import config
+packagefile encoding/json=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b168\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/log=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b002\_pkg_.a
+packagefile login-page/internal/biz=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b070\_pkg_.a
+packagefile login-page/internal/data=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b106\_pkg_.a
+packagefile mime=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b186\_pkg_.a
+packagefile net/http=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b193\_pkg_.a
+packagefile path/filepath=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b190\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a

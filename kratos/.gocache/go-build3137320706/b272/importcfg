@@ -1,0 +1,12 @@
+# import config
+packagefile context=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b041\_pkg_.a
+packagefile crypto/tls=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b119\_pkg_.a
+packagefile crypto/x509=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b156\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile github.com/golang/protobuf/proto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b273\_pkg_.a
+packagefile google.golang.org/grpc/attributes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b267\_pkg_.a
+packagefile google.golang.org/grpc/internal/credentials=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b276\_pkg_.a
+packagefile net=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b160\_pkg_.a
+packagefile net/url=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b166\_pkg_.a
+packagefile os=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b058\_pkg_.a

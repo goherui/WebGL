@@ -1,0 +1,7 @@
+# import config
+packagefile crypto/internal/fips140=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b082\_pkg_.a
+packagefile crypto/internal/fips140/hmac=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b086\_pkg_.a
+packagefile crypto/internal/fips140/sha256=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b087\_pkg_.a
+packagefile crypto/internal/fips140deps/byteorder=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b088\_pkg_.a
+packagefile crypto/internal/fips140deps/godebug=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b083\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a

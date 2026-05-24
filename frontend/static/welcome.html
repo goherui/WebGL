@@ -204,6 +204,15 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 10px;
+            position: relative;
+        }
+
+        .user-avatar img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(45, 212, 191, 0.5);
         }
 
         .user-id {
@@ -388,9 +397,12 @@
         <div class="user-hex">
             <div class="hex-bg"></div>
             <div class="hex-content">
-                <div class="user-avatar" id="userAvatar">?</div>
-                <div class="user-id">USER_ID: <span id="userId">--</span></div>
+            <div class="user-avatar" id="userAvatar">
+                <img id="avatarImg" style="display: none;">
+                <div id="avatarInitial"></div>
             </div>
+            <div class="user-id">USER_ID: <span id="userId">--</span></div>
+        </div>
         </div>
 
         <div class="username" id="username">OPERATOR</div>
@@ -444,9 +456,16 @@
                 }
 
                 const initial = user.username ? user.username[0].toUpperCase() : '?';
-                document.getElementById('userAvatar').textContent = initial;
+                document.getElementById('avatarInitial').textContent = initial;
                 document.getElementById('username').textContent = user.username.toUpperCase();
                 document.getElementById('userId').textContent = Math.random().toString(36).substr(2, 6).toUpperCase();
+
+                if (user.avatar) {
+                    const avatarImg = document.getElementById('avatarImg');
+                    avatarImg.src = user.avatar;
+                    avatarImg.style.display = 'block';
+                    document.getElementById('avatarInitial').style.display = 'none';
+                }
 
                 setTimeout(() => {
                     overlay.classList.add('hidden');

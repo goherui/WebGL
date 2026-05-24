@@ -1,0 +1,7 @@
+# import config
+packagefile crypto/subtle=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b100\_pkg_.a
+packagefile encoding/binary=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b147\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile filippo.io/edwards25519/field=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b171\_pkg_.a
+packagefile math/bits=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b038\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a

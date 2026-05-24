@@ -1,0 +1,22 @@
+# import config
+importmap golang.org/x/crypto/cryptobyte=vendor/golang.org/x/crypto/cryptobyte
+importmap golang.org/x/crypto/cryptobyte/asn1=vendor/golang.org/x/crypto/cryptobyte/asn1
+packagefile crypto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b078\_pkg_.a
+packagefile crypto/ecdh=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b123\_pkg_.a
+packagefile crypto/elliptic=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b129\_pkg_.a
+packagefile crypto/internal/boring=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b077\_pkg_.a
+packagefile crypto/internal/boring/bbig=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b114\_pkg_.a
+packagefile crypto/internal/fips140/ecdsa=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b130\_pkg_.a
+packagefile crypto/internal/fips140/nistec=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b125\_pkg_.a
+packagefile crypto/internal/fips140cache=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b131\_pkg_.a
+packagefile crypto/internal/fips140hash=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b108\_pkg_.a
+packagefile crypto/internal/fips140only=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b099\_pkg_.a
+packagefile crypto/internal/randutil=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b098\_pkg_.a
+packagefile crypto/sha512=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b118\_pkg_.a
+packagefile crypto/subtle=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b100\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile vendor/golang.org/x/crypto/cryptobyte=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b133\_pkg_.a
+packagefile vendor/golang.org/x/crypto/cryptobyte/asn1=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b136\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile math/big=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b102\_pkg_.a
+packagefile math/rand/v2=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b074\_pkg_.a

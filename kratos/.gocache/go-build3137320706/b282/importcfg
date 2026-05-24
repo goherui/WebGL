@@ -1,0 +1,7 @@
+# import config
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile github.com/golang/protobuf/proto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b273\_pkg_.a
+packagefile github.com/golang/protobuf/ptypes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b283\_pkg_.a
+packagefile google.golang.org/genproto/googleapis/rpc/status=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b280\_pkg_.a
+packagefile google.golang.org/grpc/codes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b265\_pkg_.a

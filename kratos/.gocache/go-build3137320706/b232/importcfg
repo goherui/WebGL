@@ -1,0 +1,15 @@
+# import config
+packagefile bytes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b003\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile google.golang.org/protobuf/internal/detrand=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b218\_pkg_.a
+packagefile google.golang.org/protobuf/internal/errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b220\_pkg_.a
+packagefile google.golang.org/protobuf/internal/flags=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b223\_pkg_.a
+packagefile google.golang.org/protobuf/internal/strs=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b221\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile math/bits=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b038\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile unicode=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b039\_pkg_.a
+packagefile unicode/utf16=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b050\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

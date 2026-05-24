@@ -1,0 +1,9 @@
+# import config
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile internal/bytealg=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b011\_pkg_.a
+packagefile internal/oserror=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b049\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile path=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b063\_pkg_.a
+packagefile slices=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b057\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

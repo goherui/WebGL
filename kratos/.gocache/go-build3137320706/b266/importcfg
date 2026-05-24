@@ -1,0 +1,8 @@
+# import config
+packagefile context=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b041\_pkg_.a
+packagefile google.golang.org/grpc/attributes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b267\_pkg_.a
+packagefile google.golang.org/grpc/connectivity=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b268\_pkg_.a
+packagefile google.golang.org/grpc/resolver=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b271\_pkg_.a
+packagefile google.golang.org/grpc/serviceconfig=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b277\_pkg_.a
+packagefile net=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b160\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a

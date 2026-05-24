@@ -1,0 +1,15 @@
+# import config
+importmap golang.org/x/net/http/httpguts=vendor/golang.org/x/net/http/httpguts
+importmap golang.org/x/net/http2/hpack=vendor/golang.org/x/net/http2/hpack
+packagefile context=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b041\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile vendor/golang.org/x/net/http/httpguts=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b197\_pkg_.a
+packagefile vendor/golang.org/x/net/http2/hpack=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b204\_pkg_.a
+packagefile net/http/httptrace=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b205\_pkg_.a
+packagefile net/textproto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b189\_pkg_.a
+packagefile net/url=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b166\_pkg_.a
+packagefile sort=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b167\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a

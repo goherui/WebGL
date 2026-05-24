@@ -1,0 +1,13 @@
+# import config
+packagefile bufio=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b173\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile log=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b067\_pkg_.a
+packagefile mime=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b186\_pkg_.a
+packagefile net=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b160\_pkg_.a
+packagefile net/textproto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b189\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

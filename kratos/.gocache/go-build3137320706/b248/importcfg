@@ -1,0 +1,9 @@
+# import config
+packagefile encoding/base64=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b104\_pkg_.a
+packagefile google.golang.org/protobuf/encoding/protojson=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b216\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoreflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b224\_pkg_.a
+packagefile google.golang.org/protobuf/runtime/protoimpl=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b240\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile reflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b054\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

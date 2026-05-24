@@ -1,0 +1,14 @@
+# import config
+packagefile bytes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b003\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile internal/byteorder=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b013\_pkg_.a
+packagefile internal/cpu=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b012\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile math/bits=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b038\_pkg_.a
+packagefile math/rand=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b103\_pkg_.a
+packagefile slices=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b057\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a

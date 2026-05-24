@@ -1,0 +1,10 @@
+# import config
+packagefile context=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b041\_pkg_.a
+packagefile database/sql=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b071\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/log=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b002\_pkg_.a
+packagefile golang.org/x/crypto/bcrypt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b075\_pkg_.a
+packagefile login-page/internal/data=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b106\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a

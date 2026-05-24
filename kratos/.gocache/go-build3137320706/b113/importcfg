@@ -1,0 +1,18 @@
+# import config
+packagefile crypto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b078\_pkg_.a
+packagefile crypto/internal/boring=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b077\_pkg_.a
+packagefile crypto/internal/boring/bbig=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b114\_pkg_.a
+packagefile crypto/internal/fips140/bigmod=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b115\_pkg_.a
+packagefile crypto/internal/fips140/rsa=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b116\_pkg_.a
+packagefile crypto/internal/fips140hash=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b108\_pkg_.a
+packagefile crypto/internal/fips140only=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b099\_pkg_.a
+packagefile crypto/internal/randutil=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b098\_pkg_.a
+packagefile crypto/rand=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b076\_pkg_.a
+packagefile crypto/subtle=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b100\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile hash=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b079\_pkg_.a
+packagefile internal/godebug=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b043\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile math/big=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b102\_pkg_.a

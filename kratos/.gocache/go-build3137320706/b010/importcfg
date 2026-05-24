@@ -1,0 +1,21 @@
+# import config
+packagefile internal/abi=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b006\_pkg_.a
+packagefile internal/bytealg=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b011\_pkg_.a
+packagefile internal/byteorder=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b013\_pkg_.a
+packagefile internal/chacha8rand=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b014\_pkg_.a
+packagefile internal/coverage/rtcov=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b015\_pkg_.a
+packagefile internal/cpu=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b012\_pkg_.a
+packagefile internal/goarch=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b007\_pkg_.a
+packagefile internal/godebugs=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b016\_pkg_.a
+packagefile internal/goexperiment=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b017\_pkg_.a
+packagefile internal/goos=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b018\_pkg_.a
+packagefile internal/profilerecord=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b019\_pkg_.a
+packagefile internal/runtime/atomic=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b020\_pkg_.a
+packagefile internal/runtime/exithook=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b021\_pkg_.a
+packagefile internal/runtime/gc=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b022\_pkg_.a
+packagefile internal/runtime/maps=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b023\_pkg_.a
+packagefile internal/runtime/math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b027\_pkg_.a
+packagefile internal/runtime/strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b029\_pkg_.a
+packagefile internal/runtime/sys=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b028\_pkg_.a
+packagefile internal/stringslite=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b030\_pkg_.a
+packagefile internal/trace/tracev2=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b031\_pkg_.a

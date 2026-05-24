@@ -1,0 +1,11 @@
+# import config
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile internal/fmtsort=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b052\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile os=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b058\_pkg_.a
+packagefile reflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b054\_pkg_.a
+packagefile slices=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b057\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

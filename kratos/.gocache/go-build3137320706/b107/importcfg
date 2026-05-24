@@ -1,0 +1,7 @@
+# import config
+packagefile crypto/internal/boring=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b077\_pkg_.a
+packagefile crypto/internal/fips140/hmac=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b086\_pkg_.a
+packagefile crypto/internal/fips140hash=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b108\_pkg_.a
+packagefile crypto/internal/fips140only=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b099\_pkg_.a
+packagefile crypto/subtle=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b100\_pkg_.a
+packagefile hash=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b079\_pkg_.a

@@ -1,0 +1,16 @@
+# import config
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile google.golang.org/protobuf/encoding/protowire=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b225\_pkg_.a
+packagefile google.golang.org/protobuf/internal/encoding/defval=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b231\_pkg_.a
+packagefile google.golang.org/protobuf/internal/errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b220\_pkg_.a
+packagefile google.golang.org/protobuf/internal/filedesc=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b228\_pkg_.a
+packagefile google.golang.org/protobuf/internal/flags=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b223\_pkg_.a
+packagefile google.golang.org/protobuf/internal/genid=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b233\_pkg_.a
+packagefile google.golang.org/protobuf/internal/pragma=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b226\_pkg_.a
+packagefile google.golang.org/protobuf/internal/strs=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b221\_pkg_.a
+packagefile google.golang.org/protobuf/proto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b234\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoreflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b224\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoregistry=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b236\_pkg_.a
+packagefile google.golang.org/protobuf/types/descriptorpb=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b275\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile unicode=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b039\_pkg_.a

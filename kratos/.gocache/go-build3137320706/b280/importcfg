@@ -1,0 +1,6 @@
+# import config
+packagefile google.golang.org/protobuf/reflect/protoreflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b224\_pkg_.a
+packagefile google.golang.org/protobuf/runtime/protoimpl=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b240\_pkg_.a
+packagefile google.golang.org/protobuf/types/known/anypb=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b281\_pkg_.a
+packagefile reflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b054\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a

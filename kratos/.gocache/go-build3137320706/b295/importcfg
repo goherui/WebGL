@@ -1,0 +1,9 @@
+# import config
+packagefile github.com/go-kratos/kratos/v2/encoding=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b214\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/encoding/form=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b213\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b263\_pkg_.a
+packagefile google.golang.org/protobuf/proto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b234\_pkg_.a
+packagefile net/http=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b193\_pkg_.a
+packagefile net/url=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b166\_pkg_.a
+packagefile reflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b054\_pkg_.a
+packagefile regexp=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b183\_pkg_.a

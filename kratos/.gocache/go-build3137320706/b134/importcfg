@@ -1,0 +1,14 @@
+# import config
+packagefile bytes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b003\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile internal/saferio=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b135\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile math/big=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b102\_pkg_.a
+packagefile reflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b054\_pkg_.a
+packagefile slices=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b057\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a
+packagefile unicode/utf16=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b050\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

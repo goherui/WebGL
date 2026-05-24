@@ -1,0 +1,7 @@
+# import config
+importmap golang.org/x/text/transform=vendor/golang.org/x/text/transform
+importmap golang.org/x/text/unicode/bidi=vendor/golang.org/x/text/unicode/bidi
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile vendor/golang.org/x/text/transform=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b200\_pkg_.a
+packagefile vendor/golang.org/x/text/unicode/bidi=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b201\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

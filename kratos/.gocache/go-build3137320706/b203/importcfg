@@ -1,0 +1,11 @@
+# import config
+importmap golang.org/x/net/idna=vendor/golang.org/x/net/idna
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile vendor/golang.org/x/net/idna=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b198\_pkg_.a
+packagefile net=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b160\_pkg_.a
+packagefile net/netip=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b164\_pkg_.a
+packagefile net/url=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b166\_pkg_.a
+packagefile os=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b058\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

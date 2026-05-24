@@ -1,0 +1,7 @@
+# import config
+importmap golang.org/x/net/idna=vendor/golang.org/x/net/idna
+packagefile vendor/golang.org/x/net/idna=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b198\_pkg_.a
+packagefile net=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b160\_pkg_.a
+packagefile net/textproto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b189\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

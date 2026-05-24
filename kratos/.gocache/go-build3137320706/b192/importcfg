@@ -1,0 +1,11 @@
+# import config
+packagefile crypto/hmac=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b107\_pkg_.a
+packagefile crypto/md5=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b152\_pkg_.a
+packagefile crypto/tls=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b119\_pkg_.a
+packagefile encoding/base64=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b104\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile net=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b160\_pkg_.a
+packagefile net/textproto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b189\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a

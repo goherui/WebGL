@@ -1,0 +1,12 @@
+# import config
+importmap golang.org/x/crypto/chacha20=vendor/golang.org/x/crypto/chacha20
+importmap golang.org/x/crypto/internal/alias=vendor/golang.org/x/crypto/internal/alias
+importmap golang.org/x/crypto/internal/poly1305=vendor/golang.org/x/crypto/internal/poly1305
+importmap golang.org/x/sys/cpu=vendor/golang.org/x/sys/cpu
+packagefile crypto/cipher=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b080\_pkg_.a
+packagefile encoding/binary=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b147\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile vendor/golang.org/x/crypto/chacha20=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b148\_pkg_.a
+packagefile vendor/golang.org/x/crypto/internal/alias=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b149\_pkg_.a
+packagefile vendor/golang.org/x/crypto/internal/poly1305=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b150\_pkg_.a
+packagefile vendor/golang.org/x/sys/cpu=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b151\_pkg_.a

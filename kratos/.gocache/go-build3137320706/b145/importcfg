@@ -1,0 +1,12 @@
+# import config
+importmap golang.org/x/crypto/chacha20poly1305=vendor/golang.org/x/crypto/chacha20poly1305
+packagefile crypto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b078\_pkg_.a
+packagefile crypto/aes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b121\_pkg_.a
+packagefile crypto/cipher=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b080\_pkg_.a
+packagefile crypto/ecdh=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b123\_pkg_.a
+packagefile crypto/hkdf=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b140\_pkg_.a
+packagefile crypto/rand=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b076\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile vendor/golang.org/x/crypto/chacha20poly1305=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b146\_pkg_.a
+packagefile internal/byteorder=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b013\_pkg_.a
+packagefile math/bits=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b038\_pkg_.a

@@ -1,0 +1,21 @@
+# import config
+packagefile encoding/base64=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b104\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/encoding=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b214\_pkg_.a
+packagefile github.com/go-playground/form/v4=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b215\_pkg_.a
+packagefile google.golang.org/protobuf/encoding/protojson=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b216\_pkg_.a
+packagefile google.golang.org/protobuf/proto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b234\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoreflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b224\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoregistry=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b236\_pkg_.a
+packagefile google.golang.org/protobuf/types/known/durationpb=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b239\_pkg_.a
+packagefile google.golang.org/protobuf/types/known/fieldmaskpb=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b247\_pkg_.a
+packagefile google.golang.org/protobuf/types/known/structpb=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b248\_pkg_.a
+packagefile google.golang.org/protobuf/types/known/timestamppb=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b249\_pkg_.a
+packagefile google.golang.org/protobuf/types/known/wrapperspb=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b250\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile net/url=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b166\_pkg_.a
+packagefile reflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b054\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a

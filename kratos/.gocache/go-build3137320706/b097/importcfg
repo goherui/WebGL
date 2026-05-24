@@ -1,0 +1,6 @@
+# import config
+packagefile internal/syscall/windows=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b060\_pkg_.a
+packagefile os=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b058\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a
+packagefile sync/atomic=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b035\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a

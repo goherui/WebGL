@@ -1,0 +1,8 @@
+# import config
+packagefile context=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b041\_pkg_.a
+packagefile crypto/tls=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b119\_pkg_.a
+packagefile internal/nettrace=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b162\_pkg_.a
+packagefile net=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b160\_pkg_.a
+packagefile net/textproto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b189\_pkg_.a
+packagefile reflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b054\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a

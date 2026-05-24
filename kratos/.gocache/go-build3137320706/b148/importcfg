@@ -1,0 +1,8 @@
+# import config
+importmap golang.org/x/crypto/internal/alias=vendor/golang.org/x/crypto/internal/alias
+packagefile crypto/cipher=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b080\_pkg_.a
+packagefile encoding/binary=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b147\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile vendor/golang.org/x/crypto/internal/alias=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b149\_pkg_.a
+packagefile math/bits=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b038\_pkg_.a
+packagefile runtime=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b010\_pkg_.a

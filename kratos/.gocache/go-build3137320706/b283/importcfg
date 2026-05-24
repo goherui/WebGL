@@ -1,0 +1,11 @@
+# import config
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile github.com/golang/protobuf/proto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b273\_pkg_.a
+packagefile github.com/golang/protobuf/ptypes/any=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b284\_pkg_.a
+packagefile github.com/golang/protobuf/ptypes/duration=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b285\_pkg_.a
+packagefile github.com/golang/protobuf/ptypes/timestamp=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b286\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoreflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b224\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoregistry=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b236\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a

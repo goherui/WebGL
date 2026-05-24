@@ -1,0 +1,17 @@
+# import config
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile internal/abi=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b006\_pkg_.a
+packagefile internal/bytealg=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b011\_pkg_.a
+packagefile internal/goarch=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b007\_pkg_.a
+packagefile internal/itoa=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b048\_pkg_.a
+packagefile internal/race=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b026\_pkg_.a
+packagefile internal/runtime/maps=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b023\_pkg_.a
+packagefile internal/runtime/sys=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b028\_pkg_.a
+packagefile internal/unsafeheader=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b009\_pkg_.a
+packagefile iter=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b037\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile runtime=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b010\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a
+packagefile unicode=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b039\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

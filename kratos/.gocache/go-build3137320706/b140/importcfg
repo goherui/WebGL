@@ -1,0 +1,6 @@
+# import config
+packagefile crypto/internal/fips140/hkdf=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b141\_pkg_.a
+packagefile crypto/internal/fips140hash=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b108\_pkg_.a
+packagefile crypto/internal/fips140only=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b099\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile hash=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b079\_pkg_.a

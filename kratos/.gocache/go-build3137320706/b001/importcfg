@@ -1,0 +1,8 @@
+# import config
+packagefile github.com/go-kratos/kratos/v2/log=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b002\_pkg_.a
+packagefile login-page/internal/biz=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b070\_pkg_.a
+packagefile login-page/internal/data=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b106\_pkg_.a
+packagefile login-page/internal/server=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b209\_pkg_.a
+packagefile login-page/internal/service=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b297\_pkg_.a
+packagefile os=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b058\_pkg_.a
+packagefile runtime=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b010\_pkg_.a

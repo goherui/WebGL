@@ -1,0 +1,5 @@
+# import config
+packagefile github.com/go-kratos/kratos/v2=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b210\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/log=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b002\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/transport/http=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b260\_pkg_.a
+packagefile net/http=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b193\_pkg_.a

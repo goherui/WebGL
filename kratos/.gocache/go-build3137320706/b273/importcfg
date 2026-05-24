@@ -1,0 +1,24 @@
+# import config
+packagefile bytes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b003\_pkg_.a
+packagefile compress/gzip=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b194\_pkg_.a
+packagefile encoding=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b169\_pkg_.a
+packagefile encoding/json=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b168\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile google.golang.org/protobuf/encoding/prototext=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b243\_pkg_.a
+packagefile google.golang.org/protobuf/encoding/protowire=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b225\_pkg_.a
+packagefile google.golang.org/protobuf/proto=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b234\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protodesc=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b274\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoreflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b224\_pkg_.a
+packagefile google.golang.org/protobuf/reflect/protoregistry=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b236\_pkg_.a
+packagefile google.golang.org/protobuf/runtime/protoiface=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b237\_pkg_.a
+packagefile google.golang.org/protobuf/runtime/protoimpl=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b240\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile io/ioutil=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b245\_pkg_.a
+packagefile math=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b055\_pkg_.a
+packagefile reflect=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b054\_pkg_.a
+packagefile sort=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b167\_pkg_.a
+packagefile strconv=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b056\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a
+packagefile unicode/utf8=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b040\_pkg_.a

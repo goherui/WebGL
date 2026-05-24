@@ -1,0 +1,14 @@
+# import config
+packagefile bytes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b003\_pkg_.a
+packagefile crypto/internal/entropy=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b096\_pkg_.a
+packagefile crypto/internal/fips140=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b082\_pkg_.a
+packagefile crypto/internal/fips140/aes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b081\_pkg_.a
+packagefile crypto/internal/fips140/check=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b085\_pkg_.a
+packagefile crypto/internal/fips140/subtle=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b092\_pkg_.a
+packagefile crypto/internal/fips140deps/byteorder=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b088\_pkg_.a
+packagefile crypto/internal/randutil=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b098\_pkg_.a
+packagefile crypto/internal/sysrand=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b097\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile math/bits=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b038\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a

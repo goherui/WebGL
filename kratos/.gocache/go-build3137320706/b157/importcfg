@@ -1,0 +1,6 @@
+# import config
+packagefile crypto/internal/fips140only=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b099\_pkg_.a
+packagefile crypto/internal/randutil=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b098\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile math/big=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b102\_pkg_.a

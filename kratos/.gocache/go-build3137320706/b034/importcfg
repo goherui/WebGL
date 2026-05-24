@@ -1,0 +1,5 @@
+# import config
+packagefile internal/abi=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b006\_pkg_.a
+packagefile internal/goarch=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b007\_pkg_.a
+packagefile internal/race=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b026\_pkg_.a
+packagefile sync/atomic=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b035\_pkg_.a

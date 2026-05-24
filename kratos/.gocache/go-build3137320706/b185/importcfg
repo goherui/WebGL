@@ -1,0 +1,17 @@
+# import config
+packagefile bytes=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b003\_pkg_.a
+packagefile crypto/tls=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b119\_pkg_.a
+packagefile encoding/base64=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b104\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile fmt=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b051\_pkg_.a
+packagefile io=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b032\_pkg_.a
+packagefile mime=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b186\_pkg_.a
+packagefile mime/multipart=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b187\_pkg_.a
+packagefile mime/quotedprintable=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b188\_pkg_.a
+packagefile net=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b160\_pkg_.a
+packagefile net/mail=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b191\_pkg_.a
+packagefile net/smtp=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b192\_pkg_.a
+packagefile os=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b058\_pkg_.a
+packagefile path/filepath=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b190\_pkg_.a
+packagefile strings=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b069\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a

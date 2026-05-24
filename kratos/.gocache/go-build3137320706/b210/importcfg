@@ -1,0 +1,14 @@
+# import config
+packagefile context=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b041\_pkg_.a
+packagefile errors=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b004\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/log=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b002\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/registry=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b211\_pkg_.a
+packagefile github.com/go-kratos/kratos/v2/transport=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b212\_pkg_.a
+packagefile github.com/google/uuid=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b257\_pkg_.a
+packagefile golang.org/x/sync/errgroup=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b258\_pkg_.a
+packagefile net/url=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b166\_pkg_.a
+packagefile os=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b058\_pkg_.a
+packagefile os/signal=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b259\_pkg_.a
+packagefile sync=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b033\_pkg_.a
+packagefile syscall=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b047\_pkg_.a
+packagefile time=D:\桌面\WebGL\kratos\.gocache\go-build3137320706\b042\_pkg_.a
