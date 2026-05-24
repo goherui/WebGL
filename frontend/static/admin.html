@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后台管理 - Future Lab</title>
+  <link rel="stylesheet" href="/static/css/ai-assistant.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      color: #e5f8ff;
+      background: radial-gradient(circle at top left, rgba(0,245,255,.18), transparent 34%), #070b18;
+    }
+    .admin-shell { max-width: 1180px; margin: 0 auto; padding: 28px 18px 60px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .brand h1 { font-size: 28px; letter-spacing: .04em; }
+    .brand p { margin-top: 6px; color: rgba(229,248,255,.58); font-size: 13px; }
+    .top-actions { display: flex; gap: 10px; align-items: center; }
+    .pill { padding: 9px 12px; border: 1px solid rgba(0,245,255,.22); border-radius: 999px; color: rgba(229,248,255,.75); background: rgba(255,255,255,.04); font-size: 13px; }
+    a.btn, button.btn { border: 0; border-radius: 12px; padding: 10px 14px; cursor: pointer; text-decoration: none; font-weight: 700; color: #06111f; background: linear-gradient(135deg, #2dd4bf, #38bdf8); }
+    button.ghost, a.ghost { color: #e5f8ff; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
+    .card { border: 1px solid rgba(0,245,255,.18); border-radius: 20px; background: rgba(8,12,28,.78); box-shadow: 0 20px 60px rgba(0,0,0,.25); backdrop-filter: blur(16px); }
+    .stat { padding: 18px; }
+    .stat .label { color: rgba(229,248,255,.58); font-size: 12px; letter-spacing: .08em; }
+    .stat .value { margin-top: 10px; font-size: 30px; font-weight: 800; color: #fff; }
+    .main { display: grid; grid-template-columns: 1.45fr .95fr; gap: 18px; }
+    .panel { padding: 18px; }
+    .panel-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .panel-title h2 { font-size: 18px; }
+    .hint { color: rgba(229,248,255,.52); font-size: 12px; line-height: 1.6; }
+    table { width: 100%; border-collapse: collapse; overflow: hidden; }
+    th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 13px; }
+    th { color: rgba(229,248,255,.55); font-weight: 600; }
+    td { color: rgba(255,255,255,.84); }
+    .form { display: flex; flex-direction: column; gap: 13px; }
+    .field label { display: block; margin-bottom: 7px; font-size: 13px; color: rgba(229,248,255,.68); }
+    .field input { width: 100%; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; outline: none; padding: 12px; color: #fff; background: rgba(255,255,255,.07); }
+    .field input::placeholder { color: rgba(255,255,255,.35); }
+    .status { margin-top: 10px; min-height: 20px; font-size: 13px; color: #2dd4bf; }
+    .error { color: #fb7185; }
+    .empty { padding: 24px; color: rgba(229,248,255,.5); text-align: center; }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } .main { grid-template-columns: 1fr; } .topbar { align-items: flex-start; flex-direction: column; } }
+    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } th:nth-child(1), td:nth-child(1) { display: none; } }
+  </style>
+</head>
+<body>
+  <main class="admin-shell">
+    <div class="topbar">
+      <div class="brand">
+        <h1>Future Lab 后台管理</h1>
+        <p>查看用户数据、AI 调用情况，并配置站内 AI 助手模型参数。</p>
+      </div>
+      <div class="top-actions">
+        <span class="pill" id="adminUser">ADMIN</span>
+        <a class="btn ghost" href="/lab">返回实验室</a>
+        <button class="btn ghost" id="logoutBtn">退出</button>
+      </div>
+    </div>
+
+    <section class="grid">
+      <div class="card stat"><div class="label">用户总数</div><div class="value" id="totalUsers">--</div></div>
+      <div class="card stat"><div class="label">AI 调用总数</div><div class="value" id="totalAIRequests">--</div></div>
+      <div class="card stat"><div class="label">真实模型调用</div><div class="value" id="realAIRequests">--</div></div>
+      <div class="card stat"><div class="label">本地体验回复</div><div class="value" id="mockAIRequests">--</div></div>
+    </section>
+
+    <section class="main">
+      <div class="card panel">
+        <div class="panel-title">
+          <h2>用户数据</h2>
+          <button class="btn ghost" id="refreshBtn">刷新</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr><th>ID</th><th>用户名</th><th>登录次数</th><th>注册时间</th><th>最后登录</th></tr>
+            </thead>
+            <tbody id="userRows"><tr><td colspan="5" class="empty">加载中...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card panel">
+        <div class="panel-title">
+          <h2>AI 助手配置</h2>
+        </div>
+        <form class="form" id="aiConfigForm">
+          <div class="field">
+            <label>API Base URL</label>
+            <input id="baseUrl" placeholder="https://api.deepseek.com">
+          </div>
+          <div class="field">
+            <label>模型名称</label>
+            <input id="model" placeholder="deepseek-chat">
+          </div>
+          <div class="field">
+            <label>API Key</label>
+            <input id="apiKey" type="password" placeholder="留空表示不修改已有 Key">
+            <p class="hint" id="keyHint">未配置 Key 时，AI 助手会使用本地体验模式。</p>
+          </div>
+          <button class="btn" type="submit">保存 AI 配置</button>
+          <div class="status" id="saveStatus"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/js/auth.js"></script>
+  <script src="/static/js/ai-assistant.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    async function api(url, options) {
+      const res = await fetch(url, Object.assign({ credentials: 'include' }, options || {}));
+      const data = await res.json();
+      if (data.code !== 0) throw new Error(data.msg || '请求失败');
+      return data.data;
+    }
+
+    function fmtTime(value) {
+      if (!value) return '--';
+      return new Date(value).toLocaleString();
+    }
+
+    function renderUsers(users) {
+      if (!users || users.length === 0) {
+        $('userRows').innerHTML = '<tr><td colspan="5" class="empty">暂无用户</td></tr>';
+        return;
+      }
+      $('userRows').innerHTML = users.map(u => `
+        <tr>
+          <td>${u.id}</td>
+          <td>${u.username}</td>
+          <td>${u.loginCount}</td>
+          <td>${fmtTime(u.createdAt)}</td>
+          <td>${fmtTime(u.lastLoginAt)}</td>
+        </tr>
+      `).join('');
+    }
+
+    async function loadOverview() {
+      const data = await api('/api/admin/overview');
+      $('totalUsers').textContent = data.stats.totalUsers;
+      $('totalAIRequests').textContent = data.stats.totalAIRequests;
+      $('realAIRequests').textContent = data.stats.realAIRequests;
+      $('mockAIRequests').textContent = data.stats.mockAIRequests;
+      renderUsers(data.users);
+    }
+
+    async function loadAIConfig() {
+      const cfg = await api('/api/admin/ai-config');
+      $('baseUrl').value = cfg.baseUrl || 'https://api.deepseek.com';
+      $('model').value = cfg.model || 'deepseek-chat';
+      $('keyHint').textContent = cfg.hasApiKey ? ('已配置 Key：' + cfg.apiKeyMasked + '。留空则不修改。') : '未配置 Key 时，AI 助手会使用本地体验模式。';
+    }
+
+    async function init() {
+      try {
+        const admin = await api('/api/admin/check');
+        $('adminUser').textContent = 'ADMIN: ' + admin.username;
+        await Promise.all([loadOverview(), loadAIConfig()]);
+      } catch (err) {
+        alert(err.message || '无管理员权限');
+        window.location.href = '/';
+      }
+    }
+
+    $('refreshBtn').addEventListener('click', function () {
+      loadOverview().catch(err => alert(err.message));
+    });
+    $('logoutBtn').addEventListener('click', handleLogout);
+    $('aiConfigForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      $('saveStatus').className = 'status';
+      $('saveStatus').textContent = '保存中...';
+      try {
+        await api('/api/admin/ai-config', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            baseUrl: $('baseUrl').value.trim(),
+            model: $('model').value.trim(),
+            apiKey: $('apiKey').value.trim()
+          })
+        });
+        $('apiKey').value = '';
+        await loadAIConfig();
+        $('saveStatus').textContent = '保存成功，新的 AI 对话会使用此配置。';
+      } catch (err) {
+        $('saveStatus').className = 'status error';
+        $('saveStatus').textContent = err.message || '保存失败';
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>

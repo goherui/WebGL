@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-kratos/kratos/v2/log"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type Data struct {
@@ -49,6 +49,22 @@ func initSchema(db *sql.DB) {
 		password VARCHAR(255) NOT NULL,
 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	)`)
+	db.Exec("ALTER TABLE users ADD COLUMN login_count INT NOT NULL DEFAULT 0")
+	db.Exec("ALTER TABLE users ADD COLUMN last_login_at TIMESTAMP NULL DEFAULT NULL")
+	db.Exec(`CREATE TABLE IF NOT EXISTS app_settings (
+		` + "`key`" + ` VARCHAR(100) PRIMARY KEY,
+		` + "`value`" + ` TEXT NOT NULL,
+		updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+	)`)
+	db.Exec(`CREATE TABLE IF NOT EXISTS ai_usage_logs (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		username VARCHAR(50) NOT NULL,
+		model VARCHAR(100) NOT NULL,
+		mock TINYINT(1) NOT NULL DEFAULT 0,
+		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+		INDEX idx_username (username),
+		INDEX idx_created_at (created_at)
+	)`)
 }
 
 func (d *Data) DB() *sql.DB {
@@ -61,4 +77,8 @@ func (d *Data) Exec(ctx context.Context, query string, args ...interface{}) (sql
 
 func (d *Data) QueryRow(ctx context.Context, query string, args ...interface{}) *sql.Row {
 	return d.db.QueryRowContext(ctx, query, args...)
+}
+
+func (d *Data) Query(ctx context.Context, query string, args ...interface{}) (*sql.Rows, error) {
+	return d.db.QueryContext(ctx, query, args...)
 }

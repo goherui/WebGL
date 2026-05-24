@@ -125,6 +125,7 @@ func (s *LoginService) Chat(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusBadGateway, response{Code: 1, Msg: "AI 服务暂时不可用，请稍后再试"})
 		return
 	}
+	s.uc.LogAIUsage(r.Context(), username, model, mock)
 
 	conversationID := strings.TrimSpace(req.ConversationID)
 	if conversationID == "" {
@@ -137,6 +138,21 @@ func (s *LoginService) generateAIReply(ctx context.Context, username, message st
 	apiKey := strings.TrimSpace(os.Getenv("AI_API_KEY"))
 	baseURL := strings.TrimRight(strings.TrimSpace(os.Getenv("AI_API_BASE")), "/")
 	model = strings.TrimSpace(os.Getenv("AI_MODEL"))
+
+	if cfg, cfgErr := s.uc.GetAIConfig(ctx); cfgErr == nil {
+		if strings.TrimSpace(cfg.APIKey) != "" {
+			apiKey = strings.TrimSpace(cfg.APIKey)
+		}
+		if strings.TrimSpace(cfg.BaseURL) != "" {
+			baseURL = strings.TrimRight(strings.TrimSpace(cfg.BaseURL), "/")
+		}
+		if strings.TrimSpace(cfg.Model) != "" {
+			model = strings.TrimSpace(cfg.Model)
+		}
+	} else {
+		s.log.Warnf("load ai config failed, fallback to env: %v", cfgErr)
+	}
+
 	if baseURL == "" {
 		baseURL = "https://api.deepseek.com"
 	}

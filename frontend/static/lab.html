@@ -99,6 +99,13 @@
                     <span class="settings-item-value" style="color: #00ff88;">ONLINE</span>
                 </div>
             </div>
+            <div class="settings-section" id="admin-section" style="display:none;">
+                <div class="settings-section-title">ADMIN</div>
+                <div class="settings-item" style="cursor:pointer;" id="admin-entry">
+                    <span class="settings-item-label">MANAGEMENT PANEL</span>
+                    <span class="settings-item-value">OPEN →</span>
+                </div>
+            </div>
             <div class="settings-section">
                 <div class="settings-section-title">SESSION</div>
                 <div class="settings-item">
@@ -135,6 +142,16 @@
                 document.getElementById('login-time').textContent = new Date().toLocaleTimeString();
                 
                 document.getElementById('settings-logout-btn').addEventListener('click', handleLogout);
+                document.getElementById('admin-entry').addEventListener('click', function() {
+                    window.location.href = '/admin';
+                });
+                try {
+                    const adminRes = await fetch('/api/admin/check', { credentials: 'include' });
+                    const adminData = await adminRes.json();
+                    if (adminData.code === 0) {
+                        document.getElementById('admin-section').style.display = 'block';
+                    }
+                } catch (e) {}
                 
                 setTimeout(() => loadingEl.classList.add('hidden'), 500);
 
