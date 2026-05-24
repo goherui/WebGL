@@ -13,6 +13,7 @@ type LoginHandler interface {
 	Login(http.ResponseWriter, *http.Request)
 	Logout(http.ResponseWriter, *http.Request)
 	CheckAuth(http.ResponseWriter, *http.Request)
+	Chat(http.ResponseWriter, *http.Request)
 }
 
 func NewServer(svc LoginHandler, logger log.Logger) *kratos.App {
@@ -22,6 +23,7 @@ func NewServer(svc LoginHandler, logger log.Logger) *kratos.App {
 	httpSrv.HandleFunc("/api/login", cors(svc.Login))
 	httpSrv.HandleFunc("/api/logout", cors(svc.Logout))
 	httpSrv.HandleFunc("/api/check-auth", cors(svc.CheckAuth))
+	httpSrv.HandleFunc("/api/ai/chat", cors(svc.Chat))
 
 	fs := http.FileServer(http.Dir("../frontend/static"))
 	httpSrv.HandlePrefix("/static/", http.StripPrefix("/static/", fs))

@@ -1,5 +1,7 @@
 # binary
 login-server
+webgl-server
+webgl-server.*
 
 # logs
 server.log

@@ -1,0 +1,147 @@
+.ai-assistant {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+  color: #e5f8ff;
+}
+.ai-bubble {
+  width: 68px;
+  height: 68px;
+  border: 1px solid rgba(0, 245, 255, 0.55);
+  border-radius: 22px;
+  background: radial-gradient(circle at 30% 20%, rgba(0,245,255,.35), rgba(20,20,45,.92));
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 28px rgba(0, 245, 255, .35), inset 0 0 18px rgba(255,255,255,.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.ai-bubble:hover { transform: translateY(-3px); box-shadow: 0 0 36px rgba(0,245,255,.55); }
+.ai-bubble span { font-size: 18px; font-weight: 800; letter-spacing: .08em; }
+.ai-bubble small { font-size: 11px; opacity: .78; }
+.ai-panel {
+  position: absolute;
+  right: 0;
+  bottom: 84px;
+  width: min(380px, calc(100vw - 32px));
+  height: 520px;
+  max-height: calc(100vh - 130px);
+  border: 1px solid rgba(0, 245, 255, .28);
+  border-radius: 20px;
+  background: rgba(8, 12, 28, .92);
+  box-shadow: 0 24px 70px rgba(0,0,0,.45), 0 0 40px rgba(0,245,255,.18);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(14px) scale(.96);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  display: flex;
+  flex-direction: column;
+}
+.ai-assistant.open .ai-panel { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.ai-header {
+  height: 64px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,245,255,.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(0,245,255,.12), rgba(123,44,191,.12));
+}
+.ai-header strong { display: block; font-size: 16px; letter-spacing: .04em; color: #fff; }
+.ai-header span { display: block; margin-top: 2px; font-size: 12px; color: rgba(229,248,255,.62); }
+.ai-close {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+.ai-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ai-msg {
+  max-width: 86%;
+  white-space: pre-wrap;
+  line-height: 1.55;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 14px;
+}
+.ai-msg.assistant {
+  align-self: flex-start;
+  color: rgba(235,250,255,.92);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.ai-msg.user {
+  align-self: flex-end;
+  color: #06111f;
+  background: linear-gradient(135deg, #2dd4bf, #38bdf8);
+}
+.ai-msg.loading { opacity: .72; }
+.ai-suggestions {
+  padding: 0 14px 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ai-suggestions button {
+  border: 1px solid rgba(0,245,255,.22);
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(0,245,255,.07);
+  color: rgba(229,248,255,.78);
+  font-size: 12px;
+  cursor: pointer;
+}
+.ai-suggestions button:hover { border-color: rgba(0,245,255,.55); color: #fff; }
+.ai-input-row {
+  padding: 12px;
+  border-top: 1px solid rgba(0,245,255,.15);
+  display: flex;
+  gap: 10px;
+  background: rgba(0,0,0,.16);
+}
+.ai-input-row textarea {
+  flex: 1;
+  min-height: 42px;
+  max-height: 90px;
+  resize: none;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  outline: none;
+  padding: 11px 12px;
+  color: #fff;
+  background: rgba(255,255,255,.07);
+  font-family: inherit;
+}
+.ai-input-row textarea::placeholder { color: rgba(255,255,255,.42); }
+.ai-input-row button {
+  width: 64px;
+  border: 0;
+  border-radius: 12px;
+  color: #06111f;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #2dd4bf, #38bdf8);
+}
+@media (max-width: 560px) {
+  .ai-assistant { right: 14px; bottom: 14px; }
+  .ai-panel { bottom: 78px; height: 480px; }
+}
