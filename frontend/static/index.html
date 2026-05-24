@@ -329,17 +329,15 @@
       card.style.transform = 'translate(' + cardOffsetX + 'px, ' + cardOffsetY + 'px)';
     });
 
-    /* 检查本地是否有登录记录 */
-    (function() {
-      var saved = localStorage.getItem('login_user');
-      if (saved) {
-        try {
-          var user = JSON.parse(saved);
-          showWelcome(user.username);
-        } catch(e) {
-          localStorage.removeItem('login_user');
+    /* 如果已经登录，按账号角色进入对应页面 */
+    (async function() {
+      try {
+        var res = await fetch('/api/check-auth', { credentials: 'include' });
+        var data = await res.json();
+        if (data.code === 0 && data.data && data.data.redirectTo) {
+          window.location.href = data.data.redirectTo;
         }
-      }
+      } catch(e) {}
     })();
 
     function switchTo(view) {
@@ -410,11 +408,12 @@
           body: JSON.stringify({ username: email, password: pass })
         });
         var data = await res.json();
-        // 登录成功，跳转到欢迎页
+        // 登录成功，按账号角色跳转：管理员进后台，普通用户进欢迎页
         if (data.code === 0) {
           toast('登录成功！', 'success');
+          var redirectTo = (data.data && data.data.redirectTo) || '/welcome';
           setTimeout(function() {
-            window.location.href = '/welcome';
+            window.location.href = redirectTo;
           }, 800);
         } else {
           toast(data.msg, 'error');

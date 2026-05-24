@@ -82,7 +82,12 @@ func (s *LoginService) Login(w http.ResponseWriter, r *http.Request) {
 		SameSite: http.SameSiteLaxMode,
 	})
 
-	writeJSON(w, 200, response{Code: 0, Msg: "登录成功", Data: map[string]string{"username": user.Username}})
+	redirectTo := "/welcome"
+	if isAdminUser(user.Username) {
+		redirectTo = "/admin"
+	}
+
+	writeJSON(w, 200, response{Code: 0, Msg: "登录成功", Data: map[string]string{"username": user.Username, "redirectTo": redirectTo}})
 }
 
 func (s *LoginService) Logout(w http.ResponseWriter, r *http.Request) {
@@ -103,5 +108,11 @@ func (s *LoginService) CheckAuth(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, 401, response{Code: 1, Msg: "未登录"})
 		return
 	}
-	writeJSON(w, 200, response{Code: 0, Msg: "已登录", Data: map[string]string{"username": cookie.Value}})
+	redirectTo := "/welcome"
+	role := "user"
+	if isAdminUser(cookie.Value) {
+		redirectTo = "/admin"
+		role = "admin"
+	}
+	writeJSON(w, 200, response{Code: 0, Msg: "已登录", Data: map[string]string{"username": cookie.Value, "role": role, "redirectTo": redirectTo}})
 }
